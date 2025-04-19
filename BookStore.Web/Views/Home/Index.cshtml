@@ -1,0 +1,52 @@
+﻿@model List<BookStore.Domain.Domain.Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="content">
+    <div class="row d-flex justify-content-between  flex-wrap w80 mx-auto">
+        <div class="col  py-5">
+            <h1 class="display-4 mb-3" style="color:#1A4D2E">Enter the world of literature!</h1>
+            <h3 class="display-6 mb-4" style="color: #4F6F52">Buy the next book that will win you over.</h3>
+            <a asp-action="Index" asp-controller="BookPublisher" class="btn btn-dark py-2 px-3" >Look at the books</a>
+        </div>
+        <div class="col ">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @for(var i=0;i<Model.Count();i++)
+                    {
+                        var book = Model.ElementAt(i);
+                        if(i==0)
+                        {
+                            <div class="carousel-item active">
+                                <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id">
+                                    <img style="height:420px;width:300px" src="@book.Image" class="d-block mx-auto rounded-3 shadow p-3 mb-5 " alt="...">
+                                </a>
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="carousel-item ">
+                                <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id">
+                                    <img style=" height:420px;width:300px" src="@book.Image" class="d-block rounded-3  mx-auto shadow p-3  mb-5 " alt="...">
+                                </a>
+                            </div>
+                        }
+                        
+                    }
+                   
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

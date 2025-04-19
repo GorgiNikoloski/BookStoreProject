@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BookStore.Domain.Domain.Author>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-5 text-center" style="color:#1A4D2E">Authors</h1>
+<hr class="border-3 rounded-3 mx-auto" style="width:200px" />
+
+<div class="row mx-auto row-cols-1 row-cols-md-3 mb-5 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col ">
+            <div class="m-5 text-center" style="width: 17rem;">
+                <img src="@item.Image" class="rounded-circle shadow p-3 mb-6 bg-transparent rounded" style="height:250px;width:250px" alt="...">
+                <h4 class="my-2" >@item.Name</h4>
+                    <a asp-controller="Author" class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+            </div>
+        </div>
+
+    }
+
+</div>
+<a asp-controller="Author" class="btn mx-auto d-block w-25 my-3 btn-success" asp-action="Create">Create New</a>
+
+
+

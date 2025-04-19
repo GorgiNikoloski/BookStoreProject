@@ -1,0 +1,32 @@
+﻿@model BookStore.Domain.Domain.Publisher
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="w-75 mx-auto ">
+    <h1 class="display-5 text-center my-2" style="color:#1A4D2E">Details for Publisher</h1>
+    <hr class="border-3 rounded-3 mx-auto" style="width:200px" />
+    <dl class="row ">
+        <h1 class="text-center"> @Html.DisplayFor(model => model.Name)</h1>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <div class="my-3">
+            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Id">Edit</a> |
+            <a asp-action="Index" class="btn btn-dark">Back to List</a>
+        </div>
+    </dl>
+</div>
+

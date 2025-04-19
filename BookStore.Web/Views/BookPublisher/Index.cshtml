@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BookStore.Domain.Domain.BookPublisher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-5 text-center" style="color:#1A4D2E">Аvailable Books</h1>
+<hr class="border-3 rounded-3 mx-auto" style="width:200px" />
+
+<div class="row mx-auto w-75 mx-auto row-cols-1 row-cols-md-3 mb-5 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col my-4 ">
+            <div class="card text-center  h-100 " style="width: 17rem;">
+                <img src="@item.Book.Image" class="card-img-top " style="height:58%" alt="...">
+                <div class="card-body">
+                    <a asp-controller="Book" style="text-decoration:none" class="text-dark " asp-action="Details" asp-route-id="@item.Book.Id"><h4 class="card-title">@item.Book.Title</h4> </a>
+                    <p class="card-text">Publisher: <a asp-controller="Publisher" class="text-dark fw-bolder" asp-action="Details" asp-route-id="@item.Publisher.Id">@item.Publisher.Name</a></p>
+                </div>
+                <div class="card-footer">
+                    <h3 class="py-2">@item.Price.00 MKD</h3>
+                    <a asp-controller="BookPublisher" class="btn btn-dark" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-controller="BookPublisher" class="btn btn-success px-3" asp-action="AddProductToCart" asp-route-id="@item.Id">Add To Cart</a>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>
+<a asp-controller="BookPublisher" class="btn mx-auto d-block w-25 my-3 btn-success" asp-action="Create">Create New</a>
+
+
+
+
+   
+
+        
+    
+
+</div>

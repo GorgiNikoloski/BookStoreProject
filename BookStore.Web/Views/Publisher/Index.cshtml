@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BookStore.Domain.Domain.Publisher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-5 text-center" style="color:#1A4D2E">Publishers</h1>
+<hr class="border-3 rounded-3 mx-auto" style="width:200px" />
+
+<table class="table table-dark my-5 table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" class="text-light mx-2 fw-bolder" style="text-decoration:none"  asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" class="text-light mx-2 fw-bolder" style="text-decoration:none"  asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" class="text-light mx-2  fw-bolder" style="text-decoration:none"  asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-controller="Publisher" class="btn mx-auto d-block w-25 my-3 btn-success" asp-action="Create">Create New</a>

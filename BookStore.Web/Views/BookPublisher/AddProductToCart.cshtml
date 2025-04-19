@@ -1,0 +1,42 @@
+﻿@model BookStore.Domain.DTO.AddToCartDTO
+
+
+
+<div class="container w-50 mx-auto shadow-lg text-center p-3 mb-5 bg-body-tertiary rounded-4">
+    <h1 class="display-5">Add to Cart</h1>
+    <hr class="border-3 rounded-3 mx-auto" style="width:150px" />
+    <div class="row">
+        <div class="col w-75 mx-auto">
+            <form method="post" asp-action="AddProductToCart">
+                <input type="hidden" asp-for="SelectedProductId" value="@Model.SelectedProductId" class="form-control" />
+                <div class="row mt-4">
+                    <div class="form-group">
+                        <label asp-for="SelectedProductName" class="control-label"></label>
+                        <input asp-for="SelectedProductName" class="form-control" />
+                        <span asp-validation-for="SelectedProductName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="form-group">
+                        <label asp-for="Quantity" class="control-label"></label>
+                        <input asp-for="Quantity" type="number" class="form-control" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+                </div>
+
+                
+                    <button type="submit" class="btn btn-success px-4 mt-3">Add To Cart</button>
+              
+            </form>
+            
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class=" btn btn-dark m-2">Back to List</a>
+    </div>
+
+</div>
+
+

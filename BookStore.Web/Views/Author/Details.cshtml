@@ -1,0 +1,40 @@
+﻿@model BookStore.Domain.Domain.Author
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row w80 mx-auto">
+    <div class="col-md-4">
+        <img src="@Model.Image" class="" style="height:420px;width:300px" alt="...">
+    </div>
+    <div class="col-md-8">
+        <h1 class="display-5 text-center my-2" style="color:#1A4D2E">Details for Author</h1>
+        <hr class="border-3 rounded-3 mx-auto" style="width:200px" />
+        <dl class="row">
+            <h2> @Html.DisplayFor(model => model.Name)</h2>
+
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Books)
+            </dt>
+            <dd class="col-sm-10">
+                @foreach(var item in Model.Books){
+                    <a asp-controller="Book" asp-action="Details" asp-route-id="@item.Id" class="fw-bolder text-dark" >@item.Title</a> <br />
+                }
+            </dd>
+       
+            
+            <div class="my-3">
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Id">Edit</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model?.Id">Delete</a> |
+                <a asp-action="Index" class="btn btn-dark">Back to List</a>
+            </div>
+        </dl>
+    </div>
+
+
+</div>
+
+
+

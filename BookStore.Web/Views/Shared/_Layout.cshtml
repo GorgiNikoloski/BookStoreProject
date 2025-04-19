@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookStore.Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .w80 {
+            width: 80%;
+        }
+
+        .linkNav:hover {
+            color: #4F6F52;
+        }
+
+
+        #navbarNav {
+            font-size: 18px;
+            font-weight: 450;
+        }
+
+        #brand {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body style="background: #D6DAC8;">
+    <header >
+        <nav class="navbar fixed-top shadow-sm p-3 mb-5 rounded navbar-expand-lg " style="background-color: #D6DAC8;">
+            <div class="container-fluid w80 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="me-2" viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M21 4H7C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8H21V21C21 21.5523 20.5523 22 20 22H7C4.79086 22 3 20.2091 3 18V6C3 3.79086 4.79086 2 7 2H20C20.5523 2 21 2.44772 21 3V4ZM5 18C5 19.1046 5.89543 20 7 20H19V10H7C6.27143 10 5.58835 9.80521 5 9.46487V18ZM20 7H7C6.44772 7 6 6.55228 6 6C6 5.44772 6.44772 5 7 5H20V7Z"></path></svg>
+                <a class="navbar-brand linkNav" asp-controller="Home" asp-action="Index" id="brand" >BookStore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link linkNav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <a class="nav-link linkNav" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link linkNav" asp-area="" asp-controller="Author" asp-action="Index">Authors</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link linkNav" asp-area="" asp-controller="Publisher" asp-action="Index">Publishers</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link linkNav" asp-area="" asp-controller="BookPublisher" asp-action="Index">Shop</a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark linkNav" asp-area="" asp-controller="ShoppingCarts" asp-action="Index" style="color: #254336">
+                                <svg class="mx-3 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M4.00488 16V4H2.00488V2H5.00488C5.55717 2 6.00488 2.44772 6.00488 3V15H18.4433L20.4433 7H8.00488V5H21.7241C22.2764 5 22.7241 5.44772 22.7241 6C22.7241 6.08176 22.7141 6.16322 22.6942 6.24254L20.1942 16.2425C20.083 16.6877 19.683 17 19.2241 17H5.00488C4.4526 17 4.00488 16.5523 4.00488 16ZM6.00488 23C4.90031 23 4.00488 22.1046 4.00488 21C4.00488 19.8954 4.90031 19 6.00488 19C7.10945 19 8.00488 19.8954 8.00488 21C8.00488 22.1046 7.10945 23 6.00488 23ZM18.0049 23C16.9003 23 16.0049 22.1046 16.0049 21C16.0049 19.8954 16.9003 19 18.0049 19C19.1095 19 20.0049 19.8954 20.0049 21C20.0049 22.1046 19.1095 23 18.0049 23Z"></path></svg>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style="min-height:75vh;margin-top:127px">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        
+    </div>
+
+    <footer class="container-fluid mt-auto    d-flex align-items-center justify-content-center text-light " style="background:#254336;height: 70px">
+        Copyright &copy; 2024 Integrated systems - All Rights Reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        var myCarousel = document.querySelector('#carouselExampleAutoplaying');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
